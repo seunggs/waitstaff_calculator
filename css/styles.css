@@ -2,7 +2,102 @@
 	width: 100%;
 }
 
+h1 {
+	font-size: 2.5em;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.4em;
+	color: #00ABD5;
+}
+
+.heading {
+	text-align: center;
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 15px;
+}
+
 .container {
 	width: 840px;
 	margin: 0 auto;
+}
+
+.box {
+	width: 42%;
+	float:left;
+	border: 1px solid #e7e7e7;
+	padding: 0px 10px 0px 10px;
+	margin: 10px 0;
+	vertical-align: top;
+}
+
+.box.left {
+	margin-right: 5%;
+}
+
+.col {
+	display: inline-block;
+	width: 40%;
+}
+
+.col.left {
+	text-align: right;
+	margin-right: 1%;
+}
+
+.col.right {
+	text-align: left;
+}
+
+.inputs {
+	text-align: center;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+.inputs:first-child {
+	padding-top: 25px;
+}
+
+.inputs:last-child {
+	padding: 15px 0 25px 0;
+}
+
+.inputs input {
+	width: 80%;
+}
+
+.charges {
+	text-align: center;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+.charges:first-child {
+	padding-top: 25px;
+}
+
+.charges:last-child {
+	padding-bottom: 25px;
+}
+
+.earnings {
+	text-align: center;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+.earnings:first-child {
+	padding-top: 25px;
+}
+
+.earnings:last-child {
+	padding-bottom: 25px;
+}
+
+.reset {
+	float: right;
+	margin-top: 10px;
+	text-align: right;
 }
