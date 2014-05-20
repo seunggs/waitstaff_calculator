@@ -10,109 +10,113 @@
 	</head>
 	<body>
 
-	<div class="wrapper">
-		<section class="container">
-			<h1>Waitstaff Calculator</h1>
-			<article class="box left">
-				<div class="heading">
-					<h2>Enter the Meal Details</h2>
+		<div class="wrapper" ng-controller="mainCtrl">
+			<section class="container">
+				<h1>Waitstaff Calculator</h1>
+				<article class="box left">
+					<div class="heading">
+						<h2>Enter the Meal Details</h2>
+					</div>
+					<form name="mealDetails" ng-submit="validate(); submitted=true;" novalidate> 
+						<div class="inputs">
+							<div class="col left">
+								Base meal price: $
+							</div>
+							<div class="col right">
+								<input type="number" name="formData.meal_price" ng-model="formData.meal_price" min="0" required>
+							</div>
+						</div>
+						<div class="inputs">
+							<div class="col left">
+								Tax rate: %
+							</div>
+							<div class="col right">
+								<input type="number" name="formData.tax_rate" ng-model="formData.tax_rate" min="0" max="100" required>
+							</div>
+						</div>
+						<div class="inputs">
+							<div class="col left">
+								Tip percentage: %
+							</div>
+							<div class="col right">
+								<input type="number" name="formData.tip_rate" ng-model="formData.tip_rate" min="0" max="100" required>
+							</div>					
+						</div>
+						<div class="inputs">
+							<div class="col left">
+								<input type="submit" value="Submit">
+							</div>
+							<div class="col right">
+								<input type="button" value="Cancel" ng-click="cancel()">
+							</div>					
+						</div>
+						<p class="errormsg" ng-if="mealDetails.$error.number && submitted">Please enter a valid number.</p>
+						<p class="errormsg" ng-if="mealDetails.$error.required && submitted">All fields are required.</p>
+					</form>
+				</article>
+				<article class="box">
+					<div class="heading">
+						<h2>Customer Charges</h2>
+					</div>
+					<div class="charges">
+						<div class="col left">
+							Subtotal: $
+						</div>
+						<div class="col right">
+							{{ charges.subtotal }}
+						</div>
+					</div>
+					<div class="charges">
+						<div class="col left">
+							Tip: $
+						</div>
+						<div class="col right">
+							{{ charges.tip }}
+						</div>
+					</div>
+					<div class="charges">
+						<div class="col left">
+							Total: $
+						</div>
+						<div class="col right">
+							{{ charges.total }}
+						</div>					
+					</div>				
+				</article>
+				<article class="box">
+					<div class="heading">
+						<h2>My Earnings Info</h2>
+					</div>
+					<div class="earnings">
+						<div class="col left">
+							Tip total: $
+						</div>
+						<div class="col right">
+							{{ earnings.tip_total }}
+						</div>
+					</div>
+					<div class="earnings">
+						<div class="col left">
+							Meal count: 
+						</div>
+						<div class="col right">
+							{{ earnings.meal_count }}
+						</div>
+					</div>
+					<div class="earnings">
+						<div class="col left">
+							Average tip / meal: $
+						</div>
+						<div class="col right">
+							{{ earnings.avg_tip }}
+						</div>					
+					</div>				
+				</article>
+				<div class="reset">
+					<input type="button" value="Reset" ng-click="reset()">
 				</div>
-				<div class="inputs">
-					<div class="col left">
-						Base meal price: $
-					</div>
-					<div class="col right">
-						<input type="number" name="basemeal" ng-model="basemeal">
-					</div>
-				</div>
-				<div class="inputs">
-					<div class="col left">
-						Tax rate: %
-					</div>
-					<div class="col right">
-						<input type="number" name="basemeal" ng-model="basemeal">
-					</div>
-				</div>
-				<div class="inputs">
-					<div class="col left">
-						Tip percentage: %
-					</div>
-					<div class="col right">
-						<input type="number" name="basemeal" ng-model="basemeal">
-					</div>					
-				</div>
-				<div class="inputs">
-					<div class="col left">
-						<input type="submit" value="Submit">
-					</div>
-					<div class="col right">
-						<input type="button" value="Cancel">
-					</div>					
-				</div>
-			</article>
-			<article class="box">
-				<div class="heading">
-					<h2>Customer Charges</h2>
-				</div>
-				<div class="charges">
-					<div class="col left">
-						Subtotal: $
-					</div>
-					<div class="col right">
-						Blah
-					</div>
-				</div>
-				<div class="charges">
-					<div class="col left">
-						Tip: $
-					</div>
-					<div class="col right">
-						Blah
-					</div>
-				</div>
-				<div class="charges">
-					<div class="col left">
-						Total: $
-					</div>
-					<div class="col right">
-						Blah
-					</div>					
-				</div>				
-			</article>
-			<article class="box">
-				<div class="heading">
-					<h2>My Earnings Info</h2>
-				</div>
-				<div class="earnings">
-					<div class="col left">
-						Subtotal: $
-					</div>
-					<div class="col right">
-						Blah
-					</div>
-				</div>
-				<div class="earnings">
-					<div class="col left">
-						Tip: $
-					</div>
-					<div class="col right">
-						Blah
-					</div>
-				</div>
-				<div class="earnings">
-					<div class="col left">
-						Total: $
-					</div>
-					<div class="col right">
-						Blah
-					</div>					
-				</div>				
-			</article>
-			<div class="reset">
-				<input type="button" value="Reset">
-			</div>
-		</section>
-	</div>
+			</section>
+		</div>
 
 	<!-- scripts -->
 		<script src="scripts/angular.min.js"></script>
